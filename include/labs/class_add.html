@@ -1,0 +1,43 @@
+<table class="table no-bg">
+    <tr>
+        <td>Chọn kỳ: </td>
+        <td>
+            <select ng-model="p.term" ng-options="item.name for item in term" class="cs-select cs-skin-slide">
+                <option value="" ></option>
+            </select>
+        </td>
+        <td>Tên lớp: </td>
+        <td>
+            <input class="form-control" type="text" name="fn" class="w100" ng-model="p.name">
+        </td>
+        <td>Sĩ số: </td>
+        <td>
+            <input class="form-control" type="text" name="dc" class="w180" ng-model="p.number_student">
+        </td>
+        <td>Mã môn học: </td>
+        <td>
+            <input class="form-control" type="text" name="em" class="w180" ng-model="p.subject_code">
+        </td>
+    </tr>
+    <tr>
+        <td>Thời gian bắt đầu: </td>
+        <td>
+            <input class="form-control" type="text" name="ph" class="w120" ng-model="p.time_start">
+        </td>
+        <td>Thời gian kết thúc: </td>
+        <td>
+            <input class="form-control" type="text" name="ph" class="w120" ng-model="p.time_end">
+        </td>
+        <td>Ghi chú: </td>
+        <td>
+            <input class="form-control" type="text" name="ph" class="w120" ng-model="p.note">
+        </td>
+        <td colspan="2">
+            <div class="pull-right">
+                <input type="button" class="btn btn-primary btn-sm margin-right-15" value=" Lưu " ng-click="addData(p)">
+                <input type="button" class="btn btn-primary btn-sm" value=" Đóng " ng-click="setAddData(false)">
+            </div>
+        </td>
+    </tr>
+</table>
+<!--  class="AddRowTd" -->

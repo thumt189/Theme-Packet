@@ -1,0 +1,63 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="dashboard.WELCOME" translate-values="{ appName: app.name }">WELCOME TO CLIP-TWO</h4>
+    <span class="mainDescription">Quản lý giáo viên </span>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: ds -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <h5 class="over-title margin-bottom-15">Danh sách <span class="text-bold">Giáo viên</span></h5>
+                    <!-- /// controller:  'ngTableCtrl6' -  localtion: include/theme/assets/js/controllers/ngTableCtrl.js /// -->
+                    <div ng-controller="teacherCtrl">
+                        <div class="row"> 
+                            <!--margin-bottom-10-->
+                            <div class="col-md-10">
+                                <input type=button class="btn btn-success btn-o btn-sm" id="" value="Thêm mới" id="addRowBtn" ng-click="setAddData(true)">
+                            </div>
+                            <div class="col-md-2">
+                                <button ng-click="tableDisplay.sorting({})" class="btn btn-default pull-right">
+                                    Bỏ sắp xếp
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="isAdding == true">
+                            <span ng-include src="'include/labs/teacher_add.html'"></span> 
+                        </div>
+                        <strong>Sắp xếp theo: </strong> {{tableDisplay.sorting() | json}}
+                        <div class="table-responsive">
+                            <table ng-table="tableDisplay" class="table">
+                                <tbody ng-repeat="p in $data">
+                                    <tr id="tr{{p.id}}" ng-class-odd="'odd'" ng-class-even="'even'">
+                                        <td class="rowTd" data-title="'Tên GV'" sortable="'name'">{{p.name}}</td>
+                                        <td class="rowTd" data-title="'Tài khoản'" sortable="'account'">{{p.account}}</td>
+                                        <td class="rowTd" data-title="'Mật khẩu'" sortable="'password'">{{p.password}}</td>
+                                        <td class="rowTd" data-title="'Vai trò'" sortable="'role_name'">{{p.role_name}}</td>
+                                        <td class="rowTd" data-title="'Ghi chú'" sortable="'note'">{{p.note}}</td>
+                                        <td class="rowTd">
+                                            <div class="pull-right margin-right-10">
+                                                <input type=button class="btn btn-primary btn-o btn-sm" id="editRowBtn{{p.id}}" value="Sửa" ng-click="setEditId(p)">
+                                                <input type=button class="btn btn-danger btn-o btn-sm" id="removeRowBtn{{p.id}}" value="Xóa" ng-click="setRemoveId(p)">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr ng-show="editId === p.id" ng-if="editId === p.id">
+                                        <td colspan="7" ng-include src="'include/labs/teacher_edit.html'"></td>
+                                    </tr>
+                                    <tr ng-show="removeId === p.id" ng-if="removeId === p.id">
+                                        <td colspan="7" ng-include src="'include/labs/teacher_remove.html'"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: ds -->

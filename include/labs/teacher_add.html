@@ -1,0 +1,41 @@
+<table class="table no-bg">
+    <tr>
+        <td>Tên GV: </td>
+        <td>
+            <input class="form-control" type="text" name="fn" class="w100" ng-model="p.name">
+        </td>
+        <td>Tài khoản: </td>
+        <td>
+            <input class="form-control" type="text" name="dc" class="w180" ng-model="p.account">
+        </td>
+        <td>Mật khẩu: </td>
+        <td>
+            <input class="form-control" type="text" name="em" class="w180" ng-model="p.password">
+        </td>
+    </tr>
+    <tr>
+        <td>Vai trò: </td>
+        <td>
+            <!--            <input class="form-control" type="text" name="ln" class="w100" ng-model="p.role_name">-->
+            <select ng-model="p.role" ng-options="item.name for item in role" class="cs-select cs-skin-slide">
+                <option value="" ></option>
+                <!--<option ng-repeat="item in role" value="{{item.id}}">{{item.name}}</option>-->
+                <!--                <option value="business">Business</option>
+                                <option value="honeymoon">Honeymoon</option>
+                                <option value="food">Gourmet</option>
+                                <option value="shopping">Shopping</option>-->
+            </select>
+        </td>
+        <td>Ghi chú: </td>
+        <td>
+            <input class="form-control" type="text" name="ph" class="w120" ng-model="p.note">
+        </td>
+        <td colspan="2">
+            <div class="pull-right">
+                <input type="button" class="btn btn-primary btn-sm margin-right-15" value=" Lưu " ng-click="addData(p)">
+                <input type="button" class="btn btn-primary btn-sm" value=" Đóng " ng-click="setAddData(false)">
+            </div>
+        </td>
+    </tr>
+</table>
+<!--  class="AddRowTd" -->
